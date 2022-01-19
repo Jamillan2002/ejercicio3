@@ -1,0 +1,7 @@
+<p>resultados works!</p>
+<h3>Listado de Clientes</h3>
+<ul>
+    <li *ngFor="let resultado of resultados | async">
+        {{resultado.nombre}}: {{resultado.dipu}} <img src="https://cursosdedesarrollo.com/pactometro/img/{{resultado.imagen}}" width="90px"
+                                                      height="40px"/>
+</ul>

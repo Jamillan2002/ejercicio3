@@ -1,0 +1,16 @@
+
+<h4>Añadir cadena</h4>
+<form (submit)="addListado()" >
+    <div>
+        <label>Nueva cadena</label>
+        <input type="text" [(ngModel)]="cadena"
+           [ngModelOptions]="{standalone: true}"/>
+    </div>
+</form>
+
+<h4>listado</h4>
+<ul>
+    <li *ngFor="let cadena of listado">
+        {{cadena}}
+    </li>
+</ul>

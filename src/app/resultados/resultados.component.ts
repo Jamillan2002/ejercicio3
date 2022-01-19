@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Resultado } from './resultado';
 import {HttpClient} from "@angular/common/http";
-import {catchError, Observable} from "rxjs";
+import { ResultadosService } from '../Servicios/resultados.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-resultados',
@@ -11,32 +12,31 @@ import {catchError, Observable} from "rxjs";
 export class ResultadosComponent implements OnInit {
 
   resultados: Promise<Resultado[]>;
-  url: string = 'https://cursosdedesarrollo.com/pactometro/resultados.json';
-  private _result: any;
+  resultadosVistos: Resultado[];
+  resultadosObservable: Observable<Resultado[]>;
 
-  constructor(private _httpClient: HttpClient) { 
-    //this.resultados = [];
-/*    let newResultado = new Resultado("Raros", 76, "buena");
-    this.resultados.push(newResultado);
-    newResultado = new Resultado("Normales", 23, "Regular");
-    this.resultados.push(newResultado);
-*/
-    this.resultados = this._httpClient.get<Observable<Resultado[]>>(this.url)
-      .pipe(catchError(this.handleError('get', []))).toPromise();    
-  }
 
-  private handleError (operation = 'operation', result?: any[]) {
-    this._result = result;
-    return (error: any): any[] => {
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
-      // TODO: better job of transforming error for user consumption
-      console.log(`${operation} failed: ${error.message}`);
-      // Let the app keep running by returning an empty result.
-      return [];
-    };
+  constructor(private _resultadosService: ResultadosService) { 
+
+    this.resultados = this._resultadosService.getData().toPromise();
+    // Inicializo a vacío el resultadosVistos
+    this.resultadosVistos = [];
+    this.resultadosObservable = this._resultadosService.getData();
   }
 
   ngOnInit(): void {
+     // subscribiendome al observable para procesar los datos y pasarlos a la vista
+     this.resultadosObservable.subscribe((data) => {
+      console.log(data);
+      console.log(data.length);
+
+      data.forEach( (value : Resultado) => {
+        console.log(value);
+        //let partido: Partido = new Partido(value.nombre, value.dipu, value.imagen);
+        this.resultadosVistos.push(value);
+      });
+
+      console.log(this.resultadosVistos);
+    });
   }
 }

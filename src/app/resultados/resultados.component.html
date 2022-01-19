@@ -1,6 +1,14 @@
-<h3>Listado de Clientes</h3>
+<h3>Listado de Resultados</h3>
 <ul>
     <li *ngFor="let resultado of resultados | async">
         {{resultado.nombre}}: {{resultado.dipu}} <img src="https://cursosdedesarrollo.com/pactometro/img/{{resultado.imagen}}" width="90px"
                                                       height="40px"/>
+</ul>
+<h3>Listado de Resultados como Subscripción a un Observable</h3>
+<ul>
+  <li *ngFor="let resultado of resultadosVistos">
+    {{resultado.nombre}}: {{resultado.dipu}} <img src="https://
+cursosdedesarrollo.com/pactometro/img/{{resultado.imagen}}" width="90px"
+                                                  height="40px"/>
+  </li>
 </ul>

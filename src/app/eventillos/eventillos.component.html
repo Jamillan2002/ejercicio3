@@ -1,0 +1,16 @@
+<h2>EJERCICIOS CON EVENTOS</h2>
+
+<button (click)="pulsadoBueno($event)" (mouseover)="sobreBotonBueno($event)">Bueno</button>
+<button (click)="pulsadoFeo($event)">Feo</button>
+<button (click)="pulsadoMalo($event)">Malo</button>
+
+<form (submit)="enviar()" >
+    <div>
+      <label>Nombre</label>
+      <input type="text" [(ngModel)]="campoTexto"
+           [ngModelOptions]="{standalone: true}" (blur)="ejecutablur()"/>
+    </div>
+    <div>
+        <button type="submit">Enviar</button>
+    </div>
+  </form>

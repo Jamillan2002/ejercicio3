@@ -9,6 +9,7 @@ import { MisclientesComponent } from './misclientes/misclientes.component';
 import { CondicionalesComponent } from './condicionales/condicionales.component';
 import {HttpClientModule} from "@angular/common/http";
 import { ResultadosComponent } from './resultados/resultados.component';
+import { EventillosComponent } from './eventillos/eventillos.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ResultadosComponent } from './resultados/resultados.component';
     ListadoComponent,
     MisclientesComponent,
     CondicionalesComponent,
-    ResultadosComponent
+    ResultadosComponent,
+    EventillosComponent
   ],
   imports: [
     BrowserModule,

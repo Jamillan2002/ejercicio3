@@ -1,0 +1,59 @@
+<h2>Ejemplo formularios</h2>
+
+<form (submit)="onSubmit()" #individuoForm="ngForm">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name"
+               required
+               [(ngModel)]="individuo.name" name="name"
+               #name="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="passw">Contraseña</label>
+        <input type="text" class="form-control" id="passw"
+               required
+               [(ngModel)]="individuo.passw" name="passw"
+               #passw="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="passw2">Repite Contraseña</label>
+        <input type="text" class="form-control" id="passw2"
+               required
+               [(ngModel)]="password2" name="passw2"
+               #passw2="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="email">Dirección de correo</label>
+        <input type="text" class="form-control" id="email"
+               required
+               [(ngModel)]="individuo.email" name="email"
+               #email="ngModel">
+      </div>
+    <div class="form-group">
+        <label for="genero">Género</label>
+        <p>
+        <label for="hombre">Hombre</label>
+        <input name="genero" ng-control="options" type="radio" value="1" class="radio" 
+               [(ngModel)]="individuo.genero" > <br/>
+        <label for="mujer">Mujer</label>
+        <input name="genero" ng-control="options" type="radio" value="2" class="radio" 
+        [(ngModel)]="individuo.genero">
+        </p>
+    </div>
+    <div class="form-group">
+        <label for="oriSexual">Orientación sexual</label>
+        <p>
+            <select name="sex" [(ngModel)]="individuo.sex">
+            <option [value]="item" *ngFor="let item of listaSex">{{item}}</option>
+            </select>
+        </p>
+    </div>
+    <div class="form-group">
+        <label for="tipoRelacion">Tipo de relación buscada</label>
+        <p>
+            <select name="tipoRelacion" [(ngModel)]="individuo.tipoRelacion">
+            <option [value]="item" *ngFor="let item of listaTRelacion">{{item}}</option>
+            </select>
+        </p>
+    </div>
+</form>

@@ -10,6 +10,9 @@ import { CondicionalesComponent } from './condicionales/condicionales.component'
 import {HttpClientModule} from "@angular/common/http";
 import { ResultadosComponent } from './resultados/resultados.component';
 import { EventillosComponent } from './eventillos/eventillos.component';
+import { FormulariosComponent } from './formularios/formularios.component';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { EventillosComponent } from './eventillos/eventillos.component';
     MisclientesComponent,
     CondicionalesComponent,
     ResultadosComponent,
-    EventillosComponent
+    EventillosComponent,
+    FormulariosComponent,
+    HomeComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
